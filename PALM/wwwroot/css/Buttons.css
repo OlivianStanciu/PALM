@@ -1,0 +1,109 @@
+﻿[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+
+    [type="file"] + label {
+        background: #f15d22;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: inherit;
+        font-weight: 500;
+        margin-bottom: 0px;
+        outline: none;
+        padding: 1rem 50px;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        vertical-align: middle;
+    }
+
+        [type="file"] + label:hover {
+            background-color: #237f9c;
+        }
+
+        [type="file"] + label.btn-1 {
+            background-color: #31c1ef;
+            box-shadow: 0 6px #2852f5;
+            -webkit-transition: none;
+            transition: none;
+        }
+
+            [type="file"] + label.btn-1:hover {
+                box-shadow: 0 4px #2852f5;
+                top: 2px;
+            }
+
+        [type="file"] + label.btn-2 {
+            background-color: #99c793;
+            border-radius: 50px;
+            overflow: hidden;
+        }          
+
+            [type="file"] + label.btn-2:hover {
+                background-color: #497f42;
+            }
+
+                [type="file"] + label.btn-2:hover::before {
+                    right: 75%;
+                }
+
+        [type="file"] + label.btn-3 {
+            background-color: #ee6d9e;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+            [type="file"] + label.btn-3 span {
+                display: inline-block;
+                height: 100%;
+                -webkit-transition: all 0.3s;
+                transition: all 0.3s;
+                width: 100%;
+            }           
+
+            [type="file"] + label.btn-3:hover {
+                background-color: #ae144f;
+            }
+
+                [type="file"] + label.btn-3:hover span {
+                    -webkit-transform: translateY(300%);
+                    transform: translateY(300%);
+                }
+
+                [type="file"] + label.btn-3:hover::before {
+                    top: 0;
+                }
+
+.wrapper {
+    background-color: #fff;
+    border-radius: 1rem;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 2rem;
+    width: 100%;
+}
+
+.footer {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    margin-top: 3rem;
+}
+
+h1,
+p {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+a {
+    color: #31c1ef;
+    text-decoration: none;
+}

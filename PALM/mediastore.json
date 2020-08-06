@@ -1,0 +1,63 @@
+﻿{
+  "Photobooks": [
+    {
+      "Path": "\\img\\content\\photobooks\\photobook006",
+      "Photos": [ "\\img\\content\\photobooks\\photobook006\\photo006_thumb.jpg", "\\img\\content\\photobooks\\photobook006\\photo006.jpg", "\\img\\content\\photobooks\\photobook006\\photo005_thumb.jpg", "\\img\\content\\photobooks\\photobook006\\photo005.jpg", "\\img\\content\\photobooks\\photobook006\\photo004_thumb.jpg", "\\img\\content\\photobooks\\photobook006\\photo004.jpg", "\\img\\content\\photobooks\\photobook006\\photo003_thumb.jpg", "\\img\\content\\photobooks\\photobook006\\photo003.jpg", "\\img\\content\\photobooks\\photobook006\\photo002_thumb.jpg", "\\img\\content\\photobooks\\photobook006\\photo002.jpg", "\\img\\content\\photobooks\\photobook006\\photo001_thumb.jpg", "\\img\\content\\photobooks\\photobook006\\photo001.jpg" ],
+      "Cover": "\\img\\content\\photobooks\\photobook006\\cover.jpg",
+      "Title": "PHOTOBOOK 20X30 CM VERTICAL",
+      "Description": "Coperta frontal\u0103 este personalizat\u0103, iar coperta spate este din catifea de culoare albastru royal.",
+      "CoverDescription": "Catifea albastru royal - 20x30 cm",
+      "SubTitle": "Catifea albastru royal",
+      "Attributes": [ "Dimensiune: 20x30 cm vertical", "Nr. deschideri: 24", "Data: Iunie 2020" ]
+    },
+    {
+      "Path": "\\img\\content\\photobooks\\photobook005",
+      "Photos": [ "\\img\\content\\photobooks\\photobook005\\photo010_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo010.jpg", "\\img\\content\\photobooks\\photobook005\\photo009_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo009.jpg", "\\img\\content\\photobooks\\photobook005\\photo008_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo008.jpg", "\\img\\content\\photobooks\\photobook005\\photo007_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo007.jpg", "\\img\\content\\photobooks\\photobook005\\photo006_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo006.jpg", "\\img\\content\\photobooks\\photobook005\\photo005_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo005.jpg", "\\img\\content\\photobooks\\photobook005\\photo004_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo004.jpg", "\\img\\content\\photobooks\\photobook005\\photo003_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo003.jpg", "\\img\\content\\photobooks\\photobook005\\photo002_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo002.jpg", "\\img\\content\\photobooks\\photobook005\\photo001_thumb.jpg", "\\img\\content\\photobooks\\photobook005\\photo001.jpg" ],
+      "Cover": "\\img\\content\\photobooks\\photobook005\\cover.jpg",
+      "Title": "PHOTOBOOK 30X20 CM ORIZONTAL",
+      "Description": "Coperta frontal\u0103 este personalizat\u0103, iar coperta spate este din catifea de culoare albastru royal.",
+      "CoverDescription": "Catifea albastru royal - 30x20 cm",
+      "SubTitle": "Catifea albastru royal",
+      "Attributes": [ "Dimensiune: 30x20 cm orizontal", "Nr. deschideri: 20", "Data: Iunie 2020" ]
+    },
+    {
+      "Path": "\\img\\content\\photobooks\\photobook004",
+      "Photos": [ "\\img\\content\\photobooks\\photobook004\\photo006_thumb.jpg", "\\img\\content\\photobooks\\photobook004\\photo006.jpg", "\\img\\content\\photobooks\\photobook004\\photo005_thumb.jpg", "\\img\\content\\photobooks\\photobook004\\photo005.jpg", "\\img\\content\\photobooks\\photobook004\\photo004_thumb.jpg", "\\img\\content\\photobooks\\photobook004\\photo004.jpg", "\\img\\content\\photobooks\\photobook004\\photo003_thumb.jpg", "\\img\\content\\photobooks\\photobook004\\photo003.jpg", "\\img\\content\\photobooks\\photobook004\\photo002_thumb.jpg", "\\img\\content\\photobooks\\photobook004\\photo002.jpg", "\\img\\content\\photobooks\\photobook004\\photo001_thumb.jpg", "\\img\\content\\photobooks\\photobook004\\photo001.jpg" ],
+      "Cover": "\\img\\content\\photobooks\\photobook004\\cover.jpg",
+      "Title": "PHOTOBOOK 20X15 CM ORIZONTAL",
+      "Description": "Coperta frontal\u0103 este personalizat\u0103, iar coperta spate este din catifea de culoare maro deschis.",
+      "CoverDescription": "Catifea maro deschis - 20x15 cm",
+      "SubTitle": "Catifea maro deschis",
+      "Attributes": [ "Dimensiune: 20x15 cm orizontal", "Nr. deschideri: 10", "Data: Martie 2020" ]
+    },
+    {
+      "Path": "\\img\\content\\photobooks\\photobook003",
+      "Photos": [ "\\img\\content\\photobooks\\photobook003\\photo8_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo008.jpg", "\\img\\content\\photobooks\\photobook003\\photo007_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo007.jpg", "\\img\\content\\photobooks\\photobook003\\photo006_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo006.jpg", "\\img\\content\\photobooks\\photobook003\\photo005_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo005.jpg", "\\img\\content\\photobooks\\photobook003\\photo004_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo004.jpg", "\\img\\content\\photobooks\\photobook003\\photo003_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo003.jpg", "\\img\\content\\photobooks\\photobook003\\photo002_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo002.jpg", "\\img\\content\\photobooks\\photobook003\\photo001_thumb.jpg", "\\img\\content\\photobooks\\photobook003\\photo001.jpg" ],
+      "Cover": "\\img\\content\\photobooks\\photobook003\\cover.jpg",
+      "Title": "PHOTOBOOK 25X20 CM ORIZONTAL",
+      "Description": "Ambele coper\u021Bi sunt personalizate, iar cotorul este din piele albastru \u00EEnchis.",
+      "CoverDescription": "Copert\u0103 dublu-personalizat\u0103 - 25x20 cm",
+      "SubTitle": "Copert\u0103 dublu-personalizat\u0103 \u0026 Cotor piele albastru \u00EEnchis",
+      "Attributes": [ "Dimensiune: 25x20 cm orizontal", "Nr. deschideri: 19", "Data: Mai 2020" ]
+    },
+    {
+      "Path": "\\img\\content\\photobooks\\photobook002",
+      "Photos": [ "\\img\\content\\photobooks\\photobook002\\photo007_thumb.jpg", "\\img\\content\\photobooks\\photobook002\\photo007.jpg", "\\img\\content\\photobooks\\photobook002\\photo006_thumb.jpg", "\\img\\content\\photobooks\\photobook002\\photo006.jpg", "\\img\\content\\photobooks\\photobook002\\photo005_thumb.jpg", "\\img\\content\\photobooks\\photobook002\\photo005.jpg", "\\img\\content\\photobooks\\photobook002\\photo004_thumb.jpg", "\\img\\content\\photobooks\\photobook002\\photo004.jpg", "\\img\\content\\photobooks\\photobook002\\photo003_thumb.jpg", "\\img\\content\\photobooks\\photobook002\\photo003.jpg", "\\img\\content\\photobooks\\photobook002\\photo002_thumb.jpg", "\\img\\content\\photobooks\\photobook002\\photo002.jpg", "\\img\\content\\photobooks\\photobook002\\photo001_thumb.jpg", "\\img\\content\\photobooks\\photobook002\\photo001.jpg" ],
+      "Cover": "\\img\\content\\photobooks\\photobook002\\cover.jpg",
+      "Title": "PHOTOBOOK 20X15 CM ORIZONTAL",
+      "Description": "Coperta frontal\u0103 este personalizat\u0103, iar coperta spate este din catifea de culoare albastru cenu\u0219iu.",
+      "CoverDescription": "Catifea de albastru cenu\u0219iu - 20x15 cm",
+      "SubTitle": "Catifea albastru cenu\u0219iu",
+      "Attributes": [ "Dimensiune: 20x15 cm orizontal", "Nr. deschideri: 16", "Data: Martie 2020" ]
+    },
+    {
+      "Path": "\\img\\content\\photobooks\\photobook001",
+      "Photos": [ "\\img\\content\\photobooks\\photobook001\\photo004_thumb.jpg", "\\img\\content\\photobooks\\photobook001\\photo004.jpg", "\\img\\content\\photobooks\\photobook001\\photo003_thumb.jpg", "\\img\\content\\photobooks\\photobook001\\photo003.jpg", "\\img\\content\\photobooks\\photobook001\\photo002_thumb.jpg", "\\img\\content\\photobooks\\photobook001\\photo002.jpg", "\\img\\content\\photobooks\\photobook001\\photo001_thumb.jpg", "\\img\\content\\photobooks\\photobook001\\photo001.jpg" ],
+      "Cover": "\\img\\content\\photobooks\\photobook001\\cover.jpg",
+      "Title": "PHOTOBOOK 20X20 CM",
+      "Description": "Copert\u0103 frontal\u0103 personalizat\u0103, iar coperta spate este din piele maro-vi\u0219iniu.",
+      "CoverDescription": "Piele maro-vi\u0219iniu - 20x20 cm",
+      "SubTitle": "Piele maro-vi\u0219iniu",
+      "Attributes": [ "Dimensiune: 20x20 cm orizontal", "Nr. deschideri: 19", "Data: Februarie 2020 " ]
+    }
+  ],"CanvasPictures":[{"Path":"\\img\\content\\canvas\\9_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\9.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\8_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\8.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\7_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\7.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\6_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\6.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\5_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\5.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\4_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\4.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\3_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\3.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\2_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\2.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\1_cover.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]},{"Path":"\\img\\content\\canvas\\1.jpg","Title":"Placeholder","Description":"Placeholder","SubTitle":"Placeholder","Attributes":[]}],"Magnets":[]}

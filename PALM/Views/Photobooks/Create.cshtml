@@ -1,0 +1,203 @@
+﻿@model PALM.Models.Photobook
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_EditorLayout.cshtml";
+}
+
+<style>
+    body {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    [type="submit"] {
+        padding: 20px 40px 20px 40px;
+    }
+
+   ul{
+       list-style:none;
+       padding:10px;
+   }
+    .attributeInput{
+        border:none;
+        border-bottom:1px solid #ced4da;
+    }
+
+    .list-group-flush > .list-group-item {
+        border-width: 0 0 0px;
+    }
+</style>
+
+<link href="~/css/Buttons.css" rel="stylesheet" />
+
+<div class="page-section">
+    <div class="container-xl">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Create Photobook</h2>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+    <hr />
+
+    <div class="container" style="margin-bottom:80px">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div class="row" style="margin-bottom:30px">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Title, "Title", new { @class = "font-weight-bold" })
+                        @Html.TextAreaFor(m => m.Title, new { @class = "form-control", @placeholder = "Photobook Title" })
+                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SubTitle, "Subtitle", new { @class = "font-weight-bold" })
+                        @Html.TextAreaFor(m => m.SubTitle, new { @class = "form-control", @placeholder = "Photobook Subtitle" })
+                        @Html.ValidationMessageFor(m => m.SubTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Description, "Description", new { @class = "font-weight-bold" })
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @placeholder = "Photobook Description" })
+                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CoverDescription, "Cover Description", new { @class = "font-weight-bold" })
+                        @Html.TextAreaFor(m => m.CoverDescription, new { @class = "form-control", @placeholder = "Photobook's Cover Description" })
+                        @Html.ValidationMessageFor(m => m.CoverDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="font-weight-bold" style="width: 100%;">
+                            <span>Attributes </span>
+                            <button id="addAttributes_Button" type="button" class="rounded-circle btn btn-sm btn-outline-info float-right">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </label>
+
+                        <ul id="attributesList" class="list-group list-group-flush text-center" name="Attributes">
+                            @if (Model?.Attributes?.Count > 0)
+                            {
+                                @for (int index = 0; index < Model.Attributes.Count; index++)
+                                {
+                                    <li id="@string.Concat("attribute_", index)" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-times float-right text-secondary" onClick="removeAttr(@index)" style="cursor: pointer;"></i>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(m => m.Attributes[index].Key, new { @class = "form-control attributeInput", @placeholder = "Key" })
+                                                @Html.ValidationMessageFor(m => m.Attributes[index].Key, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(m => m.Attributes[index].Value, new { @class = "form-control attributeInput", @placeholder = "Value" })
+                                                @Html.ValidationMessageFor(m => m.Attributes[index].Value, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:20px">
+                <div class="form-group text-center col-md-6">
+                    <input type="file" id="cover" name="cover" accept="image/*" value="select" />
+                    <label for="cover" class="btn-1"><i class="fas fa-upload"></i>&nbsp;Select Cover Photo</label>
+                    <div id="coverValidation" class="border-danger" style="padding-top:10px">
+                        @Html.ValidationMessage("cover", "", new { @class = "text-danger" })
+                    </div>
+                    <div id="selectedCover" class="d-none border-info rounded-lg shadow p-1" style="padding-top:10px"></div>
+                </div>
+                <div class="form-group text-center col-md-6">
+                    <input type="file" id="files" name="files" multiple accept="image/*" value="select" />
+                    <label for="files" class="btn-1"><i class="fas fa-upload"></i>&nbsp;Upload Photobook's Photos</label>
+                    <div id="filesValidation" class="border-danger" style="padding-top:10px">
+                        @Html.ValidationMessage("files", "", new { @class = "text-danger" })
+                    </div>
+                    <div id="selectedFiles" class="d-none border-info rounded-lg shadow" style="padding-top:10px"></div>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Create Photobook" class="btn btn-outline-info btn-lg rounded-lg shadow-lg" />
+            </div>
+        </form>
+
+
+        @*<div class="text-center">
+            <a asp-action="Index">Back to List</a>
+        </div>*@
+
+    </div>
+</div>
+
+
+    
+   
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        $('#cover').on('change', function () {
+
+            selectedCover = '<ul><li>' + $('#cover').prop('files')[0].name + '</li></ul>';
+
+            $("#selectedCover").html(selectedCover);
+            $('#coverValidation').addClass('d-none');
+            $("#selectedCover").removeClass('d-none')
+        });
+
+        $('#files').on('change', function () {
+
+            var selectedFiles = '<ul>';
+            var files = $('#files').prop('files')
+
+            for (var i = 0; i < files.length; i++) {
+                selectedFiles += '<li>' + files[i].name + '</li>';
+            }
+            selectedFiles += '</ul>';
+
+            $("#selectedFiles").html(selectedFiles);
+            $('#filesValidation').addClass('d-none');
+            $("#selectedFiles").removeClass('d-none');
+        });
+    </script>
+
+    <script type="text/javascript">
+        //RemoveAttribute
+        function removeAttr(attributeIndex) {
+            $('#attribute_' + attributeIndex).remove();
+            if (attributeIndex > 0) {
+                $('#attribute_' + (attributeIndex - 1) + ' .fa-times').removeClass('invisible');
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        //Add attribute Button
+        $('#addAttributes_Button').on('click', function () {
+            var list = $('#attributesList');
+            var listItemsCount = $("#attributesList li").length;
+
+            if (listItemsCount > 0) {
+                $('#attribute_' + (listItemsCount - 1) + ' .fa-times').addClass('invisible');
+            }
+            var attributeLi = `
+            <li id="attribute_${listItemsCount}" class="list-group-item list-group-item-action">
+                <i class="fas fa-times float-right text-secondary" onClick="removeAttr(${listItemsCount})" style="cursor: pointer;"></i>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="input-validation-error form-control attributeInput" data-val="true" data-val-required="The Key field is required." name="Attributes[${listItemsCount}].Key" placeholder="Key" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Attributes[${listItemsCount}].Key" data-valmsg-replace="true"></span>
+                    </div>
+                        <div class="col-md-6">
+                            <input class="input-validation-error form-control attributeInput" data-val="true" data-val-required="The Value field is required." id="Attributes_0__Value" name="Attributes[${listItemsCount}].Value" placeholder="Value" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Attributes[${listItemsCount}].Value" data-valmsg-replace="true"></span>
+                    </div>
+                        </div>
+            </li>`
+
+            list.append(attributeLi);
+        })
+
+    </script>

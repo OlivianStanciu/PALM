@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewData["Title"] = "OtherServices";
+}
+
+<style>
+    .flip-card {
+        background-color: transparent;
+        width: 700px;
+        height: 300px;
+        perspective: 1000px;
+        margin: auto;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+    }
+
+    .flip-card-back {
+        background: -webkit-linear-gradient(-45deg, #333333 60%, #1fe6fe);
+        color: white;
+        transform: rotateY(180deg);
+    }
+
+    .text-block {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgba(0,0,0,0.3);
+        color: white;
+        padding: 10px;
+    }
+</style>
+
+<header class="default_header" style="margin-bottom:0px"></header>
+
+<!-- box-shadow: 0 -15px 10px #141414; -->
+<header id="magnetSection" class="masthead" style="background-image: url('../../img/content/otherservices/about_magnets2.jpg');">
+
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading rounded-lg" style="padding:30px; background-color: rgba(0, 0, 0, 0.6)">
+                    <h1>MAGNEȚI</h1>
+                    <h6 class="subheading font-italic">"Amintiri despre cei dragi păstrate la îndemână pentru a fi reimaginate și resimțite ori de câte ori ai nevoie."</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-deck" style="margin-top:20px">
+            <div class="card rounded-lg">
+                <div class="card-header  border-info" style="background: -webkit-linear-gradient(-45deg, #333333 60%, #1fe6fe);"><h2><b>9x6 cm</b></h2></div>
+
+                <div class="card-body text-black-50">
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">1-10 buc: 5 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">11-30 buc: 4 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">31-300 buc: 3 RON</h5>
+                    </div>
+
+                    <div>
+                        <h5 class="card-title">>300 buc: 2 RON</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card rounded-lg">
+                <div class="card-header bg-info border-info"><h2><b>9x13 cm</b></h2></div>
+                <div class="card-body text-black-50">
+                    <div style="        margin-bottom: 15px
+">
+                        <h5 class="card-title">1-10 buc: 9 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">11-30 buc: 7.5 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">31-300 buc: 6.5 RON</h5>
+                    </div>
+
+                    <div>
+                        <h5 class="card-title">>300 buc: 4 RON</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card rounded-lg">
+                <div class="card-header border-info" style="background: -webkit-linear-gradient(45deg, #1fe6fe, #333333 60%);"><h2><b>13x18 cm</b></h2></div>
+                <div class="card-body text-black-50">
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">1-10 buc: 15 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">11-30 buc: 12 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">31-300 buc: 10 RON</h5>
+                    </div>
+
+                    <div>
+                        <h5 class="card-title">>300 buc: 7.5 RON</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading rounded-lg" style="padding-top:50px;">
+                <h5 class="subheading">*La cerere se pot realiza și alte dimensiuni</h5>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<header id="artPhotoSection" class="masthead" style="background-image: url('../../img/content/otherservices/about_artphoto.jpg');">
+
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading rounded-lg" style="padding:30px; background-color: rgba(0, 0, 0, 0.6)">
+                    <h1>ART PHOTO</h1>
+                    <h6 class="subheading font-italic">"Personalizăm și printăm fotografii tip Art Photo cu dimensiuni până la A3(297x420 mm) ce se pot înrăma cu ușurință."</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-deck" style="margin-top:20px">
+            <div class="card rounded-lg">
+                <div class="card-header border-info" style="background: -webkit-linear-gradient(-45deg, #333333 60%, #1fe6fe);"><h2><b>14.8x21 cm</b> <br /> <b> (A5)</b></h2></div>
+
+                <div class="card-body text-black-50">
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">1-10 buc: 3 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">11-30 buc: 2.5 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">31-300 buc: 2.2 RON</h5>
+                    </div>
+
+                    <div>
+                        <h5 class="card-title">>300 buc: 2 RON</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card rounded-lg">
+                <div class="card-header bg-info border-info"><h2><b>21x29.7 cm</b> <br /> <b>(A4)</b></h2></div>
+                <div class="card-body text-black-50">
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">1-10 buc: 6 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">11-30 buc: 5 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">31-300 buc: 4.5 RON</h5>
+                    </div>
+
+                    <div>
+                        <h5 class="card-title">>300 buc: 4 RON</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card rounded-lg">
+                <div class="card-header border-info" style="background: -webkit-linear-gradient(45deg, #1fe6fe, #333333 60%);"><h2><b>29.7x42 cm</b> <br /> <b> (A3)</b></h2></div>
+                <div class="card-body text-black-50">
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">1-10 buc: 12 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">11-30 buc: 10 RON</h5>
+                    </div>
+
+                    <div style="margin-bottom:15px">
+                        <h5 class="card-title">31-300 buc: 9 RON</h5>
+                    </div>
+
+                    <div>
+                        <h5 class="card-title">>300 buc: 8 RON</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+

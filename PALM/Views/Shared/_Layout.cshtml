@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewData["Title"] - PALM</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+
+
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+
+    <!-- Bootstrap -->
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+
+    <!-- Social Media css -->
+    <link rel="stylesheet" href="~/css/socialmedia.css" />
+
+    <!-- AOS Fade Elements CSS -->
+    <link href="~/css/flipAOS.css" rel="stylesheet">
+
+    <!-- Site css -->
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+
+
+
+<body>
+
+    <!-- Floating Social Media bar Starts -->
+    <div class="float-sm">
+        <div class="fl-fl float-facebook rounded">
+            <div class="input-group">
+                <div style="line-height: 43px">
+                    <img src="~/img/socialmedia/facebook.png" alt="" width="30" height="30" />
+                </div>
+                <a href="http://facebook.com/112528520317742" target="_blank">&nbsp;&nbsp;Like us!</a>
+            </div>
+        </div>
+        <div class="fl-fl float-instagram rounded">
+            <div class="input-group">
+                <div style="line-height: 43px">
+                    <img src="~/img/socialmedia/instagram.png" alt="" width="30" height="30" />
+                </div>
+                <a href="http://instagram.com/artpalmro" target="_blank">&nbsp;&nbsp;Follow us!</a>
+            </div>
+        </div>
+        <div class="fl-fl float-google rounded">
+            <div class="input-group">
+                <div style="line-height: 43px">
+                    <img src="~/img/socialmedia/google.png" alt="" width="30" height="30" />
+                </div>
+                <a href="mailto:artpalmro@gmail.com" target="_blank">&nbsp;&nbsp;Email us!</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Floating Social Media bar Ends -->
+    <!-- Scroll to top Button -->
+    <button class="btn btn-outline-danger" href="#page-top" id="layout_scrollBtn" title="Go to top" onclick="topFunction()">Top</button>
+
+
+
+    <!-- Navigation-->
+    @*class="js-scroll-trigger" href="#page-top"*@
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/img/palmlogo_white.png" alt="" width="100" height="86" />
+            </a>
+            <button class="navbar-toggler navbar-toggler-right btn btn-info" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Meniu
+                <i class="fas fa-bars ml-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-center" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" asp-area="" asp-controller="Home" asp-action="Photobooks">Photobooks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" asp-area="" asp-controller="Home" asp-action="CanvasPictures">Tablouri Canvas</a>
+                    </li>
+                    @*<li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Magnets">Magneți</a>
+                        </li>*@
+                    <li class="nav-item">
+                        <a class="nav-link text-center" asp-area="" asp-controller="Home" asp-action="AudioVideoTransfer">Transfer audio - video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" asp-area="" asp-controller="Home" asp-action="OtherServices">Alte Servicii</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div style="margin-bottom:70px">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <div class="cookie-notification js-cookie-notification text-center">
+        <p style="padding: 10px">Cookie-urile ne ajută să îți oferim o experiență mai bună. 
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Află mai multe</a> | <a href="#" class="js-cookie-notification-hide" onclick="">Acceptă și continuă</a>.
+        </p>
+    </div>
+
+    <!--Footer-->
+    <footer class="footer py-4 text-muted alert alert-light" style="margin-top:50px">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-left">
+                    Copyright &copy; 2020 - PALM | Powered By GoDigital
+                </div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="http://facebook.com/112528520317742" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="btn btn-dark btn-social mx-2" href="http://instagram.com/artpalmro" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="btn btn-dark btn-social mx-2" href="mailto:artpalmro@gmail.com" target="_blank">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </div>
+                <div class="col-lg-4 text-lg-right">
+                    <a class="mr-3" asp-area="" asp-controller="Home" asp-action="Privacy">Termeni si Condiții de utilizare</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JS-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!-- Contact form JS-->
+    <script src="~/assets/mail/jqBootstrapValidation.js"></script>
+    <script src="~/assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/js/scripts.js"></script>
+
+    <!-- AOS Fade Elements JS -->
+    <script src="~/js/flipAOS.js"></script>
+    <script type="text/javascript">
+        AOS.init();
+    </script>
+
+    <!-- Site JS-->
+    <script src="~/js/site.js"></script>
+
+    <!-- Cookie policy -->
+
+
+    <!-- Scroll To Top JS-->
+    <script type="text/javascript">
+        mybutton = document.getElementById("layout_scrollBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            $(".navbar-collapse").collapse("hide");
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            //window.scrollTo({ top: 0, behavior: 'smooth' });
+            $('body, html').animate(
+                {
+                    scrollTop: 0,
+                },
+                1000,
+                "easeInOutExpo"
+            );
+        }
+
+        //Set the active navbar nav-link
+        $(document).ready(function () {
+            var url = window.location;
+            $('.navbar .nav-link').find('.nav-active').removeClass('active');
+            $('.navbar .nav-link').each(function () {
+                if (this.href == url) {
+                    $(this).addClass('nav-active');
+                }
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

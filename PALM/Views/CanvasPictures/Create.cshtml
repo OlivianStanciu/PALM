@@ -1,0 +1,106 @@
+﻿@model PALM.Models.CanvasPicture
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_EditorLayout.cshtml";
+}
+
+<style>
+    body {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    [type="submit"] {
+        padding: 20px 40px 20px 40px;
+    }
+
+   ul{
+       list-style:none;
+       padding:10px;
+   }
+</style>
+
+<link href="~/css/Buttons.css" rel="stylesheet" />
+
+<div class="page-section">
+    <div class="container-xl">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Create Canvas</h2>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+    <hr />
+
+    <div class="container" style="margin-bottom:80px">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div class="row" style="margin-bottom:30px">
+                <div class="form-group" style="width:100%">
+                    @Html.LabelFor(m => m.Title, "Title", new { @class = "font-weight-bold" })
+                    @Html.TextAreaFor(m => m.Title, new { @class = "form-control", @placeholder = "Canvas Picture Title" })
+                    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:20px">
+                <div class="form-group text-center col-md-6">
+                    <input type="file" id="cover" name="cover" accept="image/*" value="select" />
+                    <label for="cover" class="btn-1"><i class="fas fa-upload"></i>&nbsp;Select Cover Photo</label>
+                    <div id="coverValidation" class="border-danger" style="padding-top:10px">
+                        @Html.ValidationMessage("cover", "", new { @class = "text-danger" })
+                    </div>
+                    <div id="selectedCover" class="d-none border-info rounded-lg shadow p-1" style="padding-top:10px"></div>
+                </div>
+
+                <div class="form-group text-center col-md-6">
+                    <input type="file" id="canvasPicture" name="canvasPicture" accept="image/*" value="select" />
+                    <label for="canvasPicture" class="btn-1"><i class="fas fa-upload"></i>&nbsp;Select Canvas Picture</label>
+                    <div id="canvasPictureValidation" class="border-danger" style="padding-top:10px">
+                        @Html.ValidationMessage("canvasPicture", "", new { @class = "text-danger" })
+                    </div>
+                    <div id="selectedCanvasPicture" class="d-none border-info rounded-lg shadow" style="padding-top:10px"></div>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Create Canvas" class="btn btn-outline-info btn-lg rounded-lg shadow-lg" />
+            </div>
+        </form>
+
+
+        @*<div class="text-center">
+            <a asp-action="Index">Back to List</a>
+        </div>*@
+
+    </div>
+</div>
+
+
+    
+   
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        $('#cover').on('change', function () {
+
+            selectedCover = '<ul><li>' + $('#cover').prop('files')[0].name + '</li></ul>';
+
+            $("#selectedCover").html(selectedCover);
+            $('#coverValidation').addClass('d-none');
+            $("#selectedCover").removeClass('d-none')
+        });
+
+
+        $('#canvasPicture').on('change', function () {
+
+            selectedCover = '<ul><li>' + $('#canvasPicture').prop('files')[0].name + '</li></ul>';
+
+            $("#selectedCanvasPicture").html(selectedCover);
+            $('#canvasPictureValidation').addClass('d-none');
+            $("#selectedCanvasPicture").removeClass('d-none')
+        });
+
+      
+    </script>
+

@@ -1,0 +1,40 @@
+﻿@model PALM.Models.Auth.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="default_header"></div>
+<div class="page-section">
+    <div class="container-xl">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Login</h2>
+            <a asp-action="Index" asp-controller="Home">Back to Home</a>
+        </div>
+    </div>
+    <div class="container">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                </label>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Login" class="btn btn-outline-info btn-lg" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

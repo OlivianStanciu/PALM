@@ -1,0 +1,271 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    a.nav_services{
+        color:black;
+        text-decoration:none;
+    }
+    a.nav_services:hover {
+        color:#24add6;
+    }
+</style>
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container-xl">
+        <div class="rounded" style="background-color: rgba(0, 0, 0, 0.3)">
+            <div class="masthead-subheading" data-aos="fade-down" data-aos-duration="1000">"Personalizăm ce contează pentru tine"</div>
+            <div class="masthead-heading text-uppercase" data-aos="fade-down" data-aos-duration="1000">Bine ai venit!</div>
+            <a class="btn btn-outline-info btn-xl text-uppercase js-scroll-trigger rounded-pill" href="#layout_begin" data-aos="fade-up" data-aos-duration="1000" style="margin:10px">Explorează</a>
+        </div>
+    </div>
+</header>
+
+
+
+
+    <!-- About Us-->
+    @*<section class="page-section" id="layout_begin">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">DESPRE NOI</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
+                    <h4 class="my-3">E-Commerce</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
+                    <h4 class="my-3">Responsive Design</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-lock fa-stack-1x fa-inverse"></i></span>
+                    <h4 class="my-3">Web Security</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+    <!-- Services -->
+    <section class="page-section bg-light" id="layout_begin">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">SERVICII</h2>
+                <h3 class="section-subheading text-muted">Personalizăm ce contează pentru tine!</h3>
+            </div>
+
+            <ul class="timeline">
+
+                <li data-aos="fade-up" data-aos-duration="1000">
+                    <div class="timeline-image">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="Photobooks">
+                            <img class="rounded-circle img-fluid" src="~/img/content/otherservices/about_photobook.jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="timeline-panel">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="Photobooks">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">PHOTOBOOK</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-right" style="color:#24add6"> </i>
+                                    Transformă fotografiile într-o poveste minunată, care peste ani va deveni cu atât mai valoroasă amintind de momentele frumoase și importante din viață.
+                                    <i class="fas fa-quote-left" style="color:#24add6"> </i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="timeline-inverted" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="timeline-image">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="CanvasPictures">
+                            <img class="rounded-circle img-fluid" src="~/img/content/otherservices/about_canvas.jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="timeline-panel">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="CanvasPictures">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">TABLOURI CANVAS</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-right" style="color:#24add6"> </i>
+                                    Momentele unice care îți aduc zâmbetul pe buze merită să fie păstrate pentru totdeauna, nu doar în suflet, ci și într-un tablou special.
+                                    <i class="fas fa-quote-left" style="color:#24add6"> </i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li data-aos="fade-up" data-aos-duration="1000">
+
+                    <div class="timeline-image">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="OtherServices"  asp-fragment="magnetSection">
+                            <img class="rounded-circle img-fluid" src="~/img/content/otherservices/about_magnets.jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="timeline-panel">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="OtherServices"  asp-fragment="magnetSection">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">MAGNEȚI</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-right" style="color:#24add6"> </i>
+                                    Amintiri despre cei dragi păstrate la îndemână pentru a fi reimaginate și resimțite ori de câte ori ai nevoie.
+                                    <i class="fas fa-quote-left" style="color:#24add6"> </i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="timeline-inverted" data-aos="fade-up" data-aos-duration="1000">
+
+                    <div class="timeline-image">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="AudioVideoTransfer">
+                            <img class="rounded-circle img-fluid" src="~/img/content/otherservices/about_audiovideo.jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="timeline-panel">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="AudioVideoTransfer">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">TRANSFER AUDIO-VIDEO</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-right" style="color: #24add6"> </i>
+                                    Transferăm în format digital momentele surprinse pe casete audio sau casete video pentru a le avea oricând aproape, accesându-le de pe calculatorul tău.
+                                    <i class="fas fa-quote-left" style="color:#24add6"> </i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li data-aos="fade-up" data-aos-duration="1000">
+                    <div class="timeline-image">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="OtherServices" asp-fragment="artPhotoSection">
+                            <img class="rounded-circle img-fluid" src="~/img/content/otherservices/tree_artPhoto.jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="timeline-panel">
+                        <a class="nav_services" asp-area="" asp-controller="Home" asp-action="OtherServices" asp-fragment="artPhotoSection">
+                            <div class="timeline-heading">
+
+                                <h4 class="subheading">ART PHOTO</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-right" style="color:#24add6"> </i>
+                                    Personalizăm și printăm fotografii tip Art Photo cu dimensiuni până la A3(297x420 mm) ce se pot înrăma cu ușurință.
+                                    <i class="fas fa-quote-left" style="color:#24add6"> </i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="timeline-inverted" data-aos="fade-up" data-aos-duration="1000">
+                    <a class="nav_services" asp-area="" asp-controller="Home" asp-action="Contact">
+                        <div class="timeline-image" style="background-color: #24add6">
+                            <h4>În curând<br />și alte<br />servicii</h4>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Partners-->
+    <section class="page-section">
+        <div class="container-xl">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">PARTENERI</h2>
+                <h3 class="section-subheading text-muted">Împreună îți oferim cea mai bună experiență!</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4" data-aos="flip-right" data-aos-duration="1000">
+                    <div class="team-member">
+                        <a href="http://www.artmediastudio.ro" target="_blank">
+                            <img class="mx-auto rounded-circle" src="~/img/content/otherservices/fujifilm_moldovacenter.jpeg" alt="" /> 
+                        </a>
+                        <h4>Fujifilm Moldova Center Iași</h4>
+                        <p class="text-muted"><a href="http://www.artmediastudio.ro" target="_blank">artmediastudio.ro</a></p>
+                        <i class="fas fa-grip-lines"></i>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+                    <div class="team-member">
+                        <a href="https://www.facebook.com/Irina-Palade-Photography-1614940295409619/" target="_blank">
+                            <img class="mx-auto rounded-circle" src="~/img/content/otherservices/IPPhotography.jpeg" alt="" />
+                        </a>
+                        <h4>IP Photography</h4>
+                        <p class="text-muted"><a href="https://www.facebook.com/Irina-Palade-Photography-1614940295409619/" target="_blank">IP Photography</a></p>
+                        <i class="fas fa-grip-lines"></i>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4" data-aos="flip-right" data-aos-duration="1000">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="~/img/content/otherservices/goDigital.jpeg" alt="" />
+                        <h4>GoDigital</h4>
+                        <p class="text-muted"><a href="#" target="_blank">goDigital</a></p>
+                        @*<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>*@
+                        <i class="fas fa-grip-lines"></i>
+                    </div>
+                </div>
+
+
+            </div>
+
+            @*<div class="row">
+                <div class="col-lg-8 mx-auto text-center"><h3 class="section-subheading text-muted">Îți mulțumim pentru vizită!</h3></div>
+            </div>*@
+        </div>
+    </section>
+
+    <!-- Clients-->
+    @*<div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/themeforest.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/creative-market.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+
+
+
+
+
+
+

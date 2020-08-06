@@ -1,0 +1,518 @@
+﻿@model IEnumerable<Photobook>
+
+@{
+    ViewData["Title"] = "PhotoBooks";
+}
+
+
+<style>
+    body {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .scrolling-wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+        .scrolling-wrapper .card {
+            display: inline-block;
+            margin: 2px;
+            opacity: 0.5
+        }
+
+            .scrolling-wrapper .card img {
+                max-height: 12vh;
+                width: auto;
+                margin-bottom: 0px;
+            }
+
+                .scrolling-wrapper .card img:hover {
+                    cursor: pointer;
+                }
+
+            .scrolling-wrapper .card.active {
+                opacity: 1;
+                border: 5px solid white;
+            }
+    #calculatorModalButton{
+        margin-bottom:50px;
+        padding:20px;
+        font-family: 'Roboto', sans-serif;
+        font-size:large;
+        font-weight:bold
+    }
+
+    .modal-content{
+        padding-top:15px;
+        background-color:transparent;
+        border: none;
+    }
+    .login-dark {
+        max-width: 500px;
+        width: 80%;
+        background-color: rgba(30, 40, 51, 1);
+        border-radius: 4px;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+    }
+    .login-dark .container {
+        padding: 40px;
+        padding-top:20px;
+        padding-bottom:10px;
+    }
+
+        .login-dark select, .login-dark input {
+            background-color: rgba(0,0,0,0);
+            color: white;
+        }
+    #price_Container {
+        display: block;
+        text-align: center;
+        transition: opacity 1s ease-out;
+        margin-top:0px
+    }
+</style>
+
+
+
+<header class="default_header"></header>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+
+@*<div class="modal fade" id="calculatorModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+        </div>
+    </div>
+    <button type="button" class="btn btn-outline-info" id="calculatorModalButton">Info</button>*@
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="calculatorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="login-dark">
+                <div class="close-modal form-group" data-dismiss="modal" style="padding:10px; cursor: pointer;">
+                    <i class="fas fa-times float-right" alt="Close modal" style="font-size:1.5em"></i>
+                </div>
+                <div class="container">
+                    <div class="form-group">
+                        <row class="justify-content-between">
+                            <label for="calc_Dimension"><b>Album (cm)</b></label>
+                            <img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
+                             Orizontal sau Vertical" />
+                        </row>
+                        <select class="form-control" id="calc_Dimension">
+                            <option>20x15</option>
+                            <option>20x20</option>
+                            <option>25x20</option>
+                            <option>25x25</option>
+                            <option>30x20</option>
+                            <option>30x30</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <row class="justify-content-between">
+                            <label for="sel1"><b>Tip Face-Off</b></label>
+                            <img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
+                             Face-Off = Prima și ultima deschidere a albumului" />
+                        </row>
+
+                        <select class="form-control" id="calc_FaceOff">
+                            <option>Carton embosat</option>
+                            <option>Catifea</option>
+                            <option>Fotografie</option>
+                            <option>Sidef</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <row class="justify-content-between">
+                            <label for="sel1"><b>Nr. Layout-uri</b></label>
+                            <img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
+                             Layout = Deschidere (conține cele 2 pagini stânga-dreapta)" />
+                        </row>
+                        <input id="calc_LayoutNo" class="form-control" type="number" min="5" placeholder="5" value="5">
+                    </div>
+
+                    <div class="form-group custom-control custom-switch justify-content-between">
+                        <input type="checkbox" class="custom-control-input" id="switch_Cover">
+                        <label class="custom-control-label" for="switch_Cover"><b>Copertă Personalizată</b></label>
+                        @*<img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
+            Despre coperta personalizată" />*@
+                    </div>
+
+
+                    <div class="form-group custom-control custom-switch justify-content-between"  style="margin-bottom:0px">
+                        <input type="checkbox" class="custom-control-input" id="switch_Graphics">
+                        <label class="custom-control-label" for="switch_Graphics"><b>Grafică</b></label>
+                        @*<img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
+            Despre Grafică" />*@
+                    </div>
+
+
+                    <div class="text-center">
+                        <button class="btn btn-outline-info my-1 btn-lg rounded-pill btn-block" id="showPrice_Button" style="margin-top:20px !important; margin-bottom:20px !important">Află preț</button>
+                    </div>
+
+                    <div id="price_Container" class="row rounded-lg d-none" style="padding:10px;"></div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@{
+    int carouselIndicator = 0;
+}
+<!-- Portfolio Grid-->
+<section class="page-section" id="portfolio">
+    <div class="container-xl">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">PhotoBooks</h2>
+            <h3 class="section-subheading text-muted justify-content-between">
+                "Transformă fotografiile într-o poveste minunată, care peste ani va deveni cu atât mai valoroasă amintind de momentele frumoase și importante din viață."
+            </h3>
+            <!-- Modal Launch-->
+            <button type="button" class="btn btn-outline-info btn-lg rounded-pill shadow-lg" id="calculatorModalButton">
+                Configurează preț album
+            </button>
+        </div>
+
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item shadow">
+                        <a class="portfolio-link" data-toggle="modal" href="@String.Concat("#modal_", @carouselIndicator)" onclick="corelateCarouselGallery(
+                                '@String.Concat("#carousel_", @carouselIndicator)',
+                                '@String.Concat("#carouselindicators_", @carouselIndicator)')">
+
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="@item.CoverPath" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading"></div>
+                            <div class="portfolio-caption-subheading text-muted">@item.CoverDescription</div>
+                        </div>
+                    </div>
+                </div>
+                carouselIndicator++;
+            }
+
+        </div>
+    </div>
+</section>
+
+
+@{
+    carouselIndicator = 0;
+}
+
+
+@foreach (var item in Model)
+{
+    int sliderContent = 0;
+    int sliderIndicators = 0;
+    <!-- Photobook Modals-->
+    <div class="portfolio-modal modal fade" id="@String.Concat("modal_", @carouselIndicator)" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    @*<img src="~/assets/img/close-icon.svg" alt="Close modal" />*@
+                    <i class="fas fa-times" alt="Close modal" style="font-size:2em"></i>
+                </div>
+                <div class="container">
+                    <!-- Project Details Go Here-->
+                    <h3 class="text-uppercase">@item.Title</h3>
+                    <p class="item-intro">@item.SubTitle</p>
+
+                    <div style="margin-bottom:20px">
+
+                        <!-- Carousel-->
+                        <div id="@String.Concat("carousel_", @carouselIndicator)" class="carousel slide" data-ride="carousel">
+
+                            <!-- Content -->
+                            <div class="carousel-inner">
+                                @foreach (var photo in item.Photos)
+                                {
+                                    if (sliderContent == 0)
+                                    {
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" src="@photo.FullResolutionPath" style="margin-bottom:0px;">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="@photo.FullResolutionPath" style="margin-bottom:0px;">
+                                        </div>
+                                    }
+                                    sliderContent++;
+                                }
+
+                            </div>
+                            <!-- End Content -->
+                            <!-- Controls-->
+                            <a class="carousel-control-prev" href="@String.Concat("#carousel_", @carouselIndicator)" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+
+                            <a class="carousel-control-next" href="@String.Concat("#carousel_", @carouselIndicator)" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            <!-- End Controls -->
+                        </div>
+                        <!-- End Carousel -->
+                        <!-- Indicators -->
+                        <div class="scrolling-wrapper" id="@String.Concat("carouselindicators_", @carouselIndicator)">
+
+                            @foreach (var photo in item.Photos)
+                            {
+                                if (sliderIndicators == 0)
+                                {
+                                    <div class="card active" data-target="@String.Concat("#carousel_", @carouselIndicator)" data-slide-to="@sliderIndicators">
+                                        <img src="@photo.ThumbnailPath">
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="card" data-target="@String.Concat("#carousel_", @carouselIndicator)" data-slide-to="@sliderIndicators">
+                                        <img src="@photo.ThumbnailPath">
+                                    </div>
+                                }
+                                sliderIndicators++;
+                            }
+                            <!-- Indicators -->
+                        </div>
+                    </div>
+
+                    <p style="margin-bottom:3px">@item.Description</p>
+
+                    <ul class="list-inline">
+                        @foreach (var attr in item.Attributes)
+                        {
+                            <li style="margin-bottom:3px; color:#cccccc"><i>@attr.Key: @attr.Value</i></li>
+                        }
+
+                    </ul>
+                    @*<button class="btn btn-outline-info rounded-circle" data-dismiss="modal" type="button">
+            <i class="fas fa-times" alt="Close modal" style="font-size:2.5em"></i>
+        </button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    carouselIndicator++;
+}
+
+<!-- Activate the tooltips -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    });
+</script>
+
+<script type="text/javascript">
+    function corelateCarouselGallery(carouselId, carouselIndicatorsId) {
+        $(carouselId).on('slide.bs.carousel', function (e) {
+            console.log('Finished SLIDE' + carouselId);
+
+            var slideFrom = $(this).find('.active').index();
+            var slideTo = $(e.relatedTarget).index();
+
+            $(carouselIndicatorsId + ' .card[data-slide-to=' + slideFrom + ']').removeClass('active');
+            $(carouselIndicatorsId + ' .card[data-slide-to=' + slideTo + ']').addClass('active');
+
+
+            //get left position of indicator img
+            var pos = $(carouselIndicatorsId + ' .card[data-slide-to=' + slideTo + ']').position().left;
+
+            // get current scroll position
+            var currentscroll = $(carouselIndicatorsId).scrollLeft();
+
+            //get scrolling-wrapper width
+            var divwidth = $(carouselIndicatorsId).width();
+
+            pos = (pos + currentscroll) - (divwidth / 2);
+
+            $(carouselIndicatorsId).animate({
+                scrollLeft: pos
+            });
+        });
+    }
+
+    function hidePriceContainer() {
+        $('#showPrice_Button').removeClass("d-none");
+
+        $priceTag = $("#price_Container");
+        $priceTag.addClass("d-none");
+    }
+
+    //modal
+    $(document).ready(function () {
+
+        $('#calculatorModalButton').click(function (e) {
+            $calculatorModal = $("#calculatorModal");
+            $calculatorModal.modal("show");
+        });
+
+
+        $('#calculatorModal').on('hidden.bs.modal', function () {
+            hidePriceContainer();
+        })
+
+        $('#showPrice_Button').click(function (e) {
+            $(this).addClass("d-none");
+
+            $calcDimensions = $("#calc_Dimension");
+            $calcDimensions.change(function () { hidePriceContainer(); });
+
+            $calcFaceOff = $("#calc_FaceOff");
+            $calcFaceOff.change(function () { hidePriceContainer(); });
+
+            $calcLayoutNo = $("#calc_LayoutNo");
+            $calcLayoutNo.change(function () { hidePriceContainer(); });
+
+            $calcCover = $("#switch_Cover");
+            $calcCover.change(function () { hidePriceContainer(); });
+
+            $calcGraphics = $("#switch_Graphics");
+            $calcGraphics.change(function () { hidePriceContainer(); });
+
+            var coverPrice = 0;
+            var graphicsPrice = 0;
+            var faceOffPrice = 0;
+            var layoutPrice = 0;
+            var totalPrice = 0;
+            var totalLayout = 0;
+            var totalGraphics = 0;
+
+            var layoutNo = parseInt($calcLayoutNo.val());
+
+            if($calcCover.is(':checked')) coverPrice += 10 ;
+            if($calcGraphics.is(':checked')) graphicsPrice += 6 ;
+
+            switch ($calcFaceOff.prop('selectedIndex')) {
+                case 0:
+                    faceOffPrice += 1;
+                    break;
+                case 1:
+                    faceOffPrice += 3;
+                    break;
+                case 3:
+                    faceOffPrice += 2;
+                    break;
+            }
+
+            switch ($calcDimensions.prop('selectedIndex')) {
+                case 0:
+                    coverPrice += 50;
+                    layoutPrice += 7;
+                    break;
+                case 1:
+                    coverPrice += 55;
+                    layoutPrice += 8;
+                    break;
+                case 2:
+                    coverPrice += 60;
+                    layoutPrice += 10;
+                    break;
+                case 3:
+                    coverPrice += 70;
+                    layoutPrice += 11;
+                    break;
+                case 4:
+                    coverPrice += 70;
+                    layoutPrice += 11;
+                    break;
+                case 5:
+                    coverPrice += 80;
+                    layoutPrice += 13;
+                    break;
+            }
+
+            faceOffPrice += layoutPrice;
+            totalLayout = layoutPrice * layoutNo;
+            totalGraphics = graphicsPrice * layoutNo;
+
+            totalPrice = coverPrice + totalLayout + totalGraphics + (faceOffPrice * 2);
+
+            //console.log(totalPrice);
+            $priceContainer = $("#price_Container");
+            var priceContainerHtml
+
+
+            if ($calcLayoutNo == null || $calcLayoutNo.val().trim() == '') {
+                priceContainerHtml = '<div class=\'alert alert-danger rounded-lg\'>Vă rugăm alegeți o valoare pentru numărul de layout-uri</div>'
+            } else if (layoutNo < 5) {
+                priceContainerHtml = '<div class=\'alert alert-danger rounded-lg\'>Numărul minim de layout-uri este <b>5</b></div>'
+            } else if (layoutNo > 60) {
+                priceContainerHtml = '<div class=\'alert alert-danger rounded-lg\'>Numărul maxim de layout-uri este <b>60</b></div>'
+            } else {
+                priceContainerHtml =
+                    '<table class="table table-sm text-white " style=\"margin-bottom:0px\"><tbody>' +
+                    '<tr><th scope="col" class="text-left">Preț Copertă:</th><th scope="col">' + coverPrice + ' RON</th></tr>' +
+                    '<tr><th scope="col" class="text-left">Preț Face-Off:</th><th scope="col">' + faceOffPrice + ' RON</th></tr>' +
+                    '<tr><th scope="col" class="text-left">Preț per Layout:</th><th scope="col">' + layoutPrice + ' RON</th></tr>' +
+                    '<tr><th scope="col" class="text-left">Grafică:</th><th scope="col">' + totalGraphics + ' RON</th></tr>' +
+                    '<tr><th scope="col" colspan=2><br><h3>Total:  ' + totalPrice + ' RON<h3></th></tr>' +
+                    '</tbody></table>';
+
+                    //'<div class=\'alert alert-info rounded-lg\'>' +
+                    //'<div>Preț Copertă:  ' + coverPrice + ' RON</div>' +
+                    //'<div>Preț Face-Off:  ' + faceOffPrice + ' RON</div>' +
+                    //'<div>Preț per Layout:  ' + layoutPrice + ' RON</div>' +
+                    //'<div>Grafică per Layout:  ' + graphicsPrice + ' RON</div><br>' +
+                    //'<div class=\'form-inline justify-content-between\'><div>Nr. deschideri: ' + layoutNo + '</div><div>' + $calcDimensions.val() + '</div></div>' +
+                    //'<br><h3>Preț total:  ' + totalPrice + ' RON<h3>' +
+                    //'</div>';
+
+                //$priceContainer.css(
+                //    {
+                //        'border': 'solid 1px white',
+                //    });
+            }
+
+            $priceContainer.html(priceContainerHtml);
+            $priceContainer.removeClass("d-none");
+        });
+    });
+</script>
+
+
+@*To map
+    [A, B] --> [a, b]
+
+    use this formula
+    (val - A)*(b-a)/(B-A) + a*@
+
+
+
+
+
+
+
+

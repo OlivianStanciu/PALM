@@ -1,0 +1,236 @@
+﻿@model PALM.Models.Photobook
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_EditorLayout.cshtml";
+}
+
+
+<style>
+    body {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .page-section {
+        padding-bottom: 20px;
+    }
+
+    .card {
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 30px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+    th {
+        padding: 10px 0 10px 5px;
+        width: 30%;
+        vertical-align: middle;
+        word-break: break-word;
+        text-align: center
+    }
+
+    td {
+        padding: 10px 0 10px 0px;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .col-md-4, .col-md-7 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+</style>
+
+<!--UIKit -->
+<link href="~/lib/uiKit/css/uikit.min.css" rel="stylesheet" />
+<script src="~/lib/uiKit/js/uikit.min.js"></script>
+<script src="~/lib/uiKit/js/uikit-icons.min.js"></script>
+<!--UIKit -->
+
+
+<div class="page-section">
+    <div class="container-xl">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Details for @Html.DisplayFor(model => model.Title)</h2>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+    <hr />
+</div>
+
+
+<div class="container" style="padding-bottom:70px">
+    <div class="row">
+        <form asp-action="Edit" style="display: contents;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-7 shadow" style="margin:10px">
+                <p class="font-weight-bold text-center">Main description</p>
+
+                <table class="table-hover" style="width: 100%;">
+                    <tr>
+                        <th>
+                            @Html.LabelFor(m => m.Title, "Title", new { @class = "font-weight-bold" })
+                        </th>
+                        <td>
+                            @Html.TextAreaFor(m => m.Title, new { @class = "form-control", @placeholder = "Photobook Title" })
+                            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(m => m.SubTitle, "Subtitle", new { @class = "font-weight-bold" })
+                        </th>
+                        <td>
+                            @Html.TextAreaFor(m => m.SubTitle, new { @class = "form-control", @placeholder = "Photobook Subtitle" })
+                            @Html.ValidationMessageFor(m => m.SubTitle, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(m => m.Description, "Description", new { @class = "font-weight-bold" })
+                        </th>
+                        <td>
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @placeholder = "Photobook Description" })
+                            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(m => m.CoverDescription, "Cover Description", new { @class = "font-weight-bold" })
+                        </th>
+                        <td>
+                            @Html.TextAreaFor(m => m.CoverDescription, new { @class = "form-control", @placeholder = "Photobook's Cover Description" })
+                            @Html.ValidationMessageFor(m => m.CoverDescription, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedAtTime)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.CreatedAtTime)
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="col-md-4 shadow" style="margin:10px">
+                <div class="form-group">
+                    <label class="font-weight-bold" style="width: 100%;">
+                        <span>Attributes </span>
+                        <button id="addAttributes_Button" type="button" class="rounded-circle btn btn-sm btn-outline-info float-right">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </label>
+
+                    <ul id="attributesList" class="list-group list-group-flush text-center" name="Attributes">
+                        @if (Model?.Attributes?.Count > 0)
+                        {
+                            @for (int index = 0; index < Model.Attributes.Count; index++)
+                            {
+                                <li id="@string.Concat("attribute_", index)" class="list-group-item list-group-item-action">
+                                    <i class="fas fa-times float-right text-secondary" onClick="removeAttr(@index)" style="cursor: pointer;"></i>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @Html.TextBoxFor(m => m.Attributes[index].Key, new { @class = "form-control attributeInput", @placeholder = "Key" })
+                                            @Html.ValidationMessageFor(m => m.Attributes[index].Key, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.TextBoxFor(m => m.Attributes[index].Value, new { @class = "form-control attributeInput", @placeholder = "Value" })
+                                            @Html.ValidationMessageFor(m => m.Attributes[index].Value, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group text-center" style="width:100%; margin-top:40px">
+                <input type="submit" value="Update Photobook" class="btn btn-outline-success btn-lg rounded-lg shadow-lg" />
+            </div>
+        </form>
+    </div>
+
+    <div class="row" style="padding-bottom:40px">
+        <div class="container">
+            <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Photo Gallery</h1>
+            <hr class="mt-2 mb-5">
+
+
+            <div uk-slideshow="animation: pull">
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                    <ul class="uk-slideshow-items">
+                        @foreach (var item in Model.Photos)
+                        {
+                            <li>
+                                <img src="@item.FullResolutionPath.Replace("\\", "/")" alt="">
+                            </li>
+                        }
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                </div>
+                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+            </div>
+
+            <div class="row text-center text-lg-left">
+                @foreach (var item in Model.Photos)
+                {
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="d-block mb-4 h-100">
+                            <img class="img-fluid rounded-lg shadow card" src="@item.ThumbnailPath.Replace("\\", "/")" alt="">
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    //RemoveAttribute
+    function removeAttr(attributeIndex) {
+        $('#attribute_' + attributeIndex).remove();
+        if (attributeIndex > 0) {
+            $('#attribute_' + (attributeIndex - 1) + ' .fa-times').removeClass('invisible');
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    //Add attribute Button
+    $('#addAttributes_Button').on('click', function () {
+        var list = $('#attributesList');
+        var listItemsCount = $("#attributesList li").length;
+
+        if (listItemsCount > 0) {
+            $('#attribute_' + (listItemsCount - 1) + ' .fa-times').addClass('invisible');
+        }
+        var attributeLi = `
+            <li id="attribute_${listItemsCount}" class="list-group-item list-group-item-action">
+                <i class="fas fa-times float-right text-secondary" onClick="removeAttr(${listItemsCount})" style="cursor: pointer;"></i>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="input-validation-error form-control attributeInput" data-val="true" data-val-required="The Key field is required." name="Attributes[${listItemsCount}].Key" placeholder="Key" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Attributes[${listItemsCount}].Key" data-valmsg-replace="true"></span>
+                    </div>
+                        <div class="col-md-6">
+                            <input class="input-validation-error form-control attributeInput" data-val="true" data-val-required="The Value field is required." id="Attributes_0__Value" name="Attributes[${listItemsCount}].Value" placeholder="Value" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Attributes[${listItemsCount}].Value" data-valmsg-replace="true"></span>
+                    </div>
+                        </div>
+            </li>`
+
+        list.append(attributeLi);
+    })
+
+</script>

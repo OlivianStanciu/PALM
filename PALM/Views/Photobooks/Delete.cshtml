@@ -1,0 +1,73 @@
+﻿@model PALM.Models.Photobook
+
+<style>
+    body {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+    th {
+        padding: 10px 0 10px 5px;
+        width: 30%;
+        vertical-align: middle;
+        word-break: break-word;
+        text-align: left
+    }
+
+    td {
+        padding: 10px 0 10px 0px;
+        word-break: break-word;
+        text-align: center;
+    }
+</style>
+
+<h3>Are you sure you want to delete this photobook?</h3>
+<div>
+    <hr />
+    <table class="table table-hover" style="width: 100%;">
+        <tr>
+            <th style="border-top:none">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <td style="border-top:none">
+                @Html.DisplayFor(model => model.Title)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTitle)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.SubTitle)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CoverDescription)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.CoverDescription)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAtTime)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.CreatedAtTime)
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+        <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+    </form>
+
+</div>

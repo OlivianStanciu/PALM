@@ -1,0 +1,331 @@
+﻿@model MailModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+<style>
+    .form-group input, .form-group textarea {
+        padding: 1.25rem;
+        font: 600 15px Arial;
+    }
+    .checkboxes{
+        font-weight: 600;
+    }
+
+    .form-group-textarea textarea {
+        height: 100%;
+        min-height: 13rem;
+    }
+
+    .form-control {
+        height: auto;
+    }
+
+    .field-validation-error {
+        padding: 5px;
+    }
+
+        .field-validation-error::before {
+            content: "•";
+            display: inline-block;
+            width: 1em;
+        }
+
+    /*.text-warning {
+        color: #eda645;
+    }*/
+    .text-validation-font {
+        color: #eda745;
+    }
+
+    .card {
+        background-color: transparent;
+        color: whitesmoke;
+        border: none;
+        border-bottom: 1px solid white;
+    }
+
+    .btn-link {
+        color: white;
+        font-weight: bolder;
+    }
+
+        .btn-link:hover {
+            box-shadow: 0 0 0 0.2rem rgba(254, 209, 54, 0.25);
+        }
+    .card-body {
+        background-color: rgba(0,0,0,0.4);
+        margin-bottom:10px;
+    }
+</style>
+
+
+<section class="page-section" id="contact">
+
+    <div class="container" style="padding-top:100px">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Întrebări frecvente</h2>
+
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="heading0">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                                Cât costă un album tip carte/photobook?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapse0" class="collapse" aria-labelledby="heading0" data-parent="#accordion">
+                        <div class="card-body text-left rounded-lg">
+                            <ul>
+                                <li style="list-style:none">
+                                    <div>Puteți găsi un simulator de calcul pentru albume tip carte/Photobooks la pagina <a href="/Home/Photobooks" style="color:#e6b301">PHOTOBOOKS</a>.</div>
+                                    <div>Dacă aveți nevoie de alte detalii, ne puteți scrie folosind formularul de mai jos.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="heading1">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                Cum se pot livra produsele?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+                        <div class="card-body text-left rounded-lg">
+                            <ul>
+                                <li>Produsele se pot preda personal în București în următoarele zone:</li>
+                                <li style="list-style:none">
+                                    <ul style="list-style:none">
+                                        <li>-&nbsp;&nbsp;Sector 2: Metrou Costin Georgian, Spitalul Pantelimon, Arena națională, Mega Mall, Piața Delfinului.</li>
+                                        <li>-&nbsp;&nbsp;Sector 3: Piața Miniș, Metrou Titan. </li>
+                                    </ul>
+                                </li>
+                                <li>Pentru alte localități, produsele se vor trimite prin poștă sau curier contra-cost.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="heading2">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                Cât costă livrarea produselor?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                        <div class="card-body text-left rounded-lg">
+                            <ul>
+                                <li>Predare personală - Gratuit.</li>
+                                <li>Fan Courier - 24 RON. (pentru zonele acoperite de rețeaua Fan Courier)</li>
+                                <li>Poșta Română - 15 RON. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="heading3">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                Care este timpul aproximativ de execuție pentru produse (după confirmarea comenzii)?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                        <div class="card-body text-left rounded-lg">
+                            <ul>
+                                <li>Tablou Canvas - 24-48 ore</li>
+                                <li>Albume Foto - 5 zile</li>
+                                <li>Magneți - 24-48 ore</li>
+                                <li>Transfer Audio-Video - 48 ore</li>
+                            </ul>
+                            <p>*Notă: Timpul poate diferi în funcție de volumul comenzilor primite, dar te vom anunța din timp. </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="heading4">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                Ce garanție se oferă produselor?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
+                        <div class="card-body text-left rounded-lg">
+                            <p>Oferim o garanție de 30-90 zile calendaristice tuturor produselor comercializate. Garanția produselor o veți primi odată cu acestea. Garanția este valabilă doar în cazul în care produsele au fost depozitate corect/conform indicațiilor primite.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="heading5">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                Se pot returna produsele?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordion">
+                        <div class="card-body text-left rounded-lg">
+                            <p>Sunt exceptate de la dreptul de retur toate produsele personalizate conform <a href="https://anpc.ro/anpcftp/legislatie/oug_34_140616.pdf" target="_blank" style="color:#e6b301">OUG. 34/2014 Art. 16 pct. c</a>:</p><br />
+                            <div><i>"Sunt exceptate de la dreptul de retragere prevăzut la art. 9-15 în ceea ce priveşte contractele la distanţă şi contractele în afara spaţiilor comerciale următoarele:</i></div>
+                            <div><i>...</i></div>
+                            <div><i>c) furnizarea de produse confecţionate după specificaţiile prezentate de consumator sau personalizate în mod clar;"</i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container" style="padding-top:100px">
+        <div class="text-center text-white">
+            <h2 class="section-heading text-uppercase">Contact</h2>
+            <h3 class="section-subheading text-white" style="margin-bottom:20px;">Echipa noastră îți stă la dispoziție pentru orice informații ai nevoie despre produsele noastre.<br />Sună-ne sau scrie-ne folosind datele de contact de mai jos și te vom ajuta cu drag.</h3>
+
+            <div>
+                <i class="fas fa-calendar-alt"></i><span>&nbsp;&nbsp;Luni-Vineri: 10:00 - 19:00</span>
+            </div>
+            <div>
+                <i class="fas fa-globe"></i><span>&nbsp;&nbsp;http://artpalm.ro</span>
+            </div>
+            <div>
+                <i class="fas fa-phone"></i><span>&nbsp;&nbsp;0742 940 280</span>
+            </div><br />
+
+            <div>
+                <span>Dă-ne like paginii noastre de Facebook și Instagram și află din timp despre cele mai bune oferte sau noutăți!</span>
+            </div><br />
+            <div>
+                <a href="http://facebook.com/112528520317742" target="_blank"><img src="~/img/socialmedia/facebook.png" style="width:50px;" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://instagram.com/artpalmro" target="_blank"><img src="~/img/socialmedia/instagram.png" style="width:50px;" /></a>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+    <div class="container" style="padding-top:100px">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Trimite-ne un mesaj</h2>
+            <h3 class="section-subheading text-white">Te vom contacta în cel mai scurt timp.</h3>
+        </div>
+
+
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { id = "messageForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row align-items-stretch mb-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Numele Tău *" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-validation-font" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Adresa Ta de Email *" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-validation-font" })
+                    </div>
+                    <div class="form-group mb-md-0">
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Numărul tău de Telefon *" })
+                        @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-validation-font" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", @placeholder = "Mesajul Tău *" })
+                            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-validation-font" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center mb-5 text-white checkboxes">
+                <spam>De ce produse ești interesat:</spam>&nbsp;&nbsp;&nbsp;
+
+                <div class="custom-control custom-control-inline custom-checkbox">
+                    @Html.CheckBoxFor(m => m.PhotobooksCheck, new { @class = "custom-control-input" })
+                    @Html.LabelFor(m => m.PhotobooksCheck, new { @class = "custom-control-label" })
+                </div>&nbsp;
+
+                <div class="custom-control custom-control-inline custom-checkbox">
+                    @Html.CheckBoxFor(m => m.CanvasCheck, new { @class = "custom-control-input" })
+                    @Html.LabelFor(m => m.CanvasCheck, new { @class = "custom-control-label" })
+                </div>&nbsp;
+
+                <div class="custom-control custom-control-inline custom-checkbox">
+                    @Html.CheckBoxFor(m => m.AudioVideoCheck, new { @class = "custom-control-input" })
+                    @Html.LabelFor(m => m.AudioVideoCheck, new { @class = "custom-control-label" })
+                </div>&nbsp;
+
+                <div class="custom-control custom-control-inline custom-checkbox">
+                    @Html.CheckBoxFor(m => m.OtherSvcCheck, new { @class = "custom-control-input" })
+                    @Html.LabelFor(m => m.OtherSvcCheck, new { @class = "custom-control-label" })
+                    
+                </div>
+
+            </div>
+          
+
+            <div class="text-center">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-outline-info btn-xl text-uppercase rounded-pill" value="Trimite-ne un Mesaj" />
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+    <div class="modal fade" id="formStatusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Bootstrap core JS-->
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#messageForm').submit(function (e) {
+            e.preventDefault();
+            var $form = $(this);
+
+            $.post($form.attr("action"), $form.serialize())
+                .done(function (res) {
+
+                    var responseDoc = new DOMParser().parseFromString(res, "text/xml");
+
+                    if (responseDoc.getElementById('SentFootprint') != null) {
+                        $formStatusModal = $("#formStatusModal");
+                        //update the modal's body with the response received
+                        $formStatusModal.find("div.modal-dialog").html(res);
+                        // Show the modal
+                        $formStatusModal.modal("show");
+                    } else {
+                        $("main").html(res);
+                    }
+                });
+        });
+    });
+</script>
