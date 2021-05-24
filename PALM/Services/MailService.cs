@@ -14,8 +14,8 @@ namespace PALM.Services
         {
             var credential = new NetworkCredential
             {
-                UserName = "noreply.artpalmro@gmail.com",  // replace with valid value
-                Password = "91@u(XL]0S5mxJGN!}"  // replace with valid value
+                UserName = "test",  // replace with valid value
+                Password = "test"  // replace with valid value
             };
             _smtpClient = new SmtpClient();
             _smtpClient.Credentials = credential;
