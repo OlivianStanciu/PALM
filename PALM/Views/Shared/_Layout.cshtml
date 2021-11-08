@@ -75,7 +75,11 @@
     <!-- Floating Social Media bar Ends -->
     <!-- Scroll to top Button -->
     <button class="btn btn-outline-danger" href="#page-top" id="layout_scrollBtn" title="Go to top" onclick="topFunction()">Top</button>
-
+    <button class="btn btn-outline-info" id="layout_messengerBtn" title="Contactează-ne" >
+        <a href="https://m.me/artpalmro" target="_blank">
+            <img src="~/img/socialmedia/messenger.png" />
+        </a>
+    </button>
 
 
     <!-- Navigation-->
@@ -129,7 +133,8 @@
 
 
     <div class="cookie-notification js-cookie-notification text-center">
-        <p style="padding: 10px">Cookie-urile ne ajută să îți oferim o experiență mai bună. 
+        <p style="padding: 10px">
+            Cookie-urile ne ajută să îți oferim o experiență mai bună.
             <a asp-area="" asp-controller="Home" asp-action="Privacy">Află mai multe</a> | <a href="#" class="js-cookie-notification-hide" onclick="">Acceptă și continuă</a>.
         </p>
     </div>
@@ -183,25 +188,37 @@
     <script src="~/js/site.js"></script>
 
     <!-- Cookie policy -->
-
-
     <!-- Scroll To Top JS-->
     <script type="text/javascript">
-        mybutton = document.getElementById("layout_scrollBtn");
+        scrollButton = document.getElementById("layout_scrollBtn");
+        messengerButton = document.getElementById("layout_messengerBtn");
 
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
             $(".navbar-collapse").collapse("hide");
-            scrollFunction()
+            ajustScrollAndMessagerButtonsOnScroll();
         };
 
-        function scrollFunction() {
+        function ajustScrollAndMessagerButtonsOnScroll() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
+                //scroll to top visible
+                scrollButton.style.display = "block";
+                messengerButton.style.bottom = "90px";
             } else {
-                mybutton.style.display = "none";
+                //scroll to top hidden
+                scrollButton.style.display = "none";
+                messengerButton.style.bottom = "20px";
             }
         }
+
+        function reajustMessengerButtonOnScroll() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollButton.style.display = "block";
+            } else {
+                scrollButton.style.display = "none";
+            }
+        }
+
 
         // When the user clicks on the button, scroll to the top of the document
         function topFunction() {

@@ -57,6 +57,16 @@
         background-color: rgba(0,0,0,0.4);
         margin-bottom:10px;
     }
+
+    #messengerContact_Btn {
+        border: none;
+        outline: none;
+    }
+        #messengerContact_Btn:hover {
+            background-color: #2194f3;
+            padding-right: 70px;
+            padding-left: 70px;
+        }
 </style>
 
 
@@ -226,7 +236,7 @@
             <h3 class="section-subheading text-white">Te vom contacta în cel mai scurt timp.</h3>
         </div>
 
-
+        @*/*Old Contact form*/
         @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { id = "messageForm" }))
         {
             @Html.AntiForgeryToken()
@@ -275,19 +285,26 @@
                 <div class="custom-control custom-control-inline custom-checkbox">
                     @Html.CheckBoxFor(m => m.OtherSvcCheck, new { @class = "custom-control-input" })
                     @Html.LabelFor(m => m.OtherSvcCheck, new { @class = "custom-control-label" })
-                    
+
                 </div>
 
             </div>
-          
+
 
             <div class="text-center">
                 <div class="form-group">
                     <input type="submit" class="btn btn-outline-info btn-xl text-uppercase rounded-pill" value="Trimite-ne un Mesaj" />
                 </div>
             </div>
-        }
+        }*@
 
+        <div class="text-center">
+            <div class="form-group">
+                <a href="https://m.me/artpalmro" target="_blank" id="messengerContact_Btn" class="btn btn-outline-info rounded-pill" style="text-decoration:none">
+                    <img src="~/img/socialmedia/messenger.png" />
+                </a>
+            </div>
+        </div>
     </div>
 
 
