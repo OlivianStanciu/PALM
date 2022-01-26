@@ -123,7 +123,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <row class="justify-content-between">
                             <label for="sel1"><b>Tip Face-Off</b></label>
                             <img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
@@ -136,7 +136,7 @@
                             <option>Fotografie</option>
                             <option>Sidef</option>
                         </select>
-                    </div>
+                    </div>*@
 
                     <div class="form-group">
                         <row class="justify-content-between">
@@ -147,12 +147,12 @@
                         <input id="calc_LayoutNo" class="form-control" type="number" min="5" placeholder="5" value="5">
                     </div>
 
-                    <div class="form-group custom-control custom-switch justify-content-between">
+                    @*<div class="form-group custom-control custom-switch justify-content-between">
                         <input type="checkbox" class="custom-control-input" id="switch_Cover" checked="checked">
                         <label class="custom-control-label" for="switch_Cover"><b>Copertă Personalizată</b></label>
-                        @*<img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
-            Despre coperta personalizată" />*@
-                    </div>
+                        <img src="~/img/content/otherservices/tooltip.png" class="navbar-toggler-icon float-right" data-toggle="tooltip" data-placement="left" data-html="true" title="
+            Despre coperta personalizată" />
+                    </div>*@
 
 
                     <div class="form-group custom-control custom-switch justify-content-between"  style="margin-bottom:0px">
@@ -402,9 +402,9 @@
             $calcGraphics = $("#switch_Graphics");
             $calcGraphics.change(function () { hidePriceContainer(); });
 
-            var coverPrice = 0;
+            var coverPrice = 10;
             var graphicsPrice = 0;
-            var faceOffPrice = 0;
+            var faceOffPrice = 4;
             var layoutPrice = 0;
             var totalPrice = 0;
             var totalLayout = 0;
@@ -412,10 +412,11 @@
 
             var layoutNo = parseInt($calcLayoutNo.val());
 
-            if($calcCover.is(':checked')) coverPrice += 10 ;
-            if($calcGraphics.is(':checked')) graphicsPrice += 6 ;
+            @*if($calcCover.is(':checked')) coverPrice += 10 ;*@
+            if($calcGraphics.is(':checked')) graphicsPrice += 7;
 
-            switch ($calcFaceOff.prop('selectedIndex')) {
+
+            @*switch ($calcFaceOff.prop('selectedIndex')) {
                 case 0:
                     faceOffPrice += 1;
                     break;
@@ -425,32 +426,32 @@
                 case 3:
                     faceOffPrice += 2;
                     break;
-            }
+            }*@
 
             switch ($calcDimensions.prop('selectedIndex')) {
                 case 0:
-                    coverPrice += 50;
-                    layoutPrice += 7;
+                    coverPrice += 60;
+                    layoutPrice += 9;
                     break;
                 case 1:
-                    coverPrice += 55;
-                    layoutPrice += 8;
-                    break;
-                case 2:
-                    coverPrice += 60;
+                    coverPrice += 65;
                     layoutPrice += 10;
                     break;
+                case 2:
+                    coverPrice += 70;
+                    layoutPrice += 12;
+                    break;
                 case 3:
-                    coverPrice += 70;
-                    layoutPrice += 11;
-                    break;
-                case 4:
-                    coverPrice += 70;
-                    layoutPrice += 11;
-                    break;
-                case 5:
                     coverPrice += 80;
                     layoutPrice += 13;
+                    break;
+                case 4:
+                    coverPrice += 80;
+                    layoutPrice += 14;
+                    break;
+                case 5:
+                    coverPrice += 90;
+                    layoutPrice += 15;
                     break;
             }
 
@@ -475,7 +476,7 @@
                 priceContainerHtml =
                     '<table class="table table-sm text-white " style=\"margin-bottom:0px\"><tbody>' +
                     '<tr><th scope="col" class="text-left">Preț Copertă:</th><th scope="col">' + coverPrice + ' RON</th></tr>' +
-                    '<tr><th scope="col" class="text-left">Preț Face-Off:</th><th scope="col">' + faceOffPrice + ' RON</th></tr>' +
+                    '<tr><th scope="col" class="text-left" data-toggle="tooltip" data-placement="top" data-html="true" title="Face-off = prima și ultima deschidere a albumului. Aceasta poate fi cu catifea, sidef, fotografie sau cartonată">Preț Face-Off:</th><th scope="col">' + faceOffPrice + ' RON</th></tr>' +
                     '<tr><th scope="col" class="text-left">Preț per Layout:</th><th scope="col">' + layoutPrice + ' RON</th></tr>' +
                     '<tr><th scope="col" class="text-left">Grafică:</th><th scope="col">' + totalGraphics + ' RON</th></tr>' +
                     '<tr><th scope="col" colspan=2><br><h3>Total:  ' + totalPrice + ' RON<h3></th></tr>' +
